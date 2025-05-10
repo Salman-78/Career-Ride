@@ -48,7 +48,7 @@ model Education {
 }
 
 model Profession {
-  id              String       @id @default(auto()) @map("_id") @db.ObjectId
+  id              String        @id @default(auto()) @map("_id") @db.ObjectId
   title           String
   companyName     String
   city            String
@@ -56,6 +56,6 @@ model Profession {
   startDate       String
   endDate         String
   workSummary     String
-  basicdetails    BasicDetails @relation(fields: [BasicDetails_id], references: [id])
-  BasicDetails_id String       @db.ObjectId
+  basicdetails    BasicDetails? @relation(fields: [BasicDetails_id], references: [id])
+  BasicDetails_id String?       @db.ObjectId
 }

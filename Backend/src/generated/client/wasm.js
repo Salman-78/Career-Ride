@@ -139,6 +139,7 @@ exports.Prisma.EducationScalarFieldEnum = {
   startDate: 'startDate',
   endDate: 'endDate',
   description: 'description',
+  resume_url: 'resume_url',
   BasicDetails_id: 'BasicDetails_id'
 };
 

@@ -8,7 +8,7 @@ export default {
     headingColor: "#4b5563",
     subHeadingColor: "#4b5563",
 
-    ResumeName:"TCS Resume",
+    ResumeName: "TCS Resume",
 
     summary: 'Lorem ipsum dolor sit amet, consequat. velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     experience: [
@@ -69,22 +69,22 @@ export default {
         {
             id: 1,
             name: 'Angular',
-            rating: 80,
+            rating: 1,
         },
         {
             id: 1,
             name: 'React',
-            rating: 100,
+            rating: 1,
         },
         {
             id: 1,
             name: 'MySql',
-            rating: 90,
+            rating: 1,
         },
         {
             id: 1,
             name: 'React Native',
-            rating: 70,
+            rating: 1,
         }
     ]
 }

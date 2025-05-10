@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import resumeEg from "../../../assets/resume_eg.jpg";
@@ -5,6 +6,7 @@ import { AuthContext } from "../../../provider";
 import Header from "../Header";
 import AddResumsCard from "./AddResumsCard";
 import ResumeListCard from "./ResumeListCard";
+import { Button } from "@/components/ui/button"
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -21,10 +23,10 @@ const Dashboard = () => {
         </p>
         <div className="flex gap-4">
           <AddResumsCard />
-          <ResumeListCard img={resumeEg} />
+          {/* <ResumeListCard img={resumeEg} />
           <ResumeListCard img={null} />
           <ResumeListCard img={null} />
-          <ResumeListCard img={null} />
+          <ResumeListCard img={null} /> */}
           {/* grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 */}
         </div>
       </div>

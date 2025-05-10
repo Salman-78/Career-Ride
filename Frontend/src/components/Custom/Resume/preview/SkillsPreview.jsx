@@ -17,7 +17,7 @@ const SkillsPreview = ({ resumeInfo }) => {
                     <div key={index} className="flex items-center justify-between">
                         <h2 className="text-xs">{skills.name}</h2>
                         <div className="h-2 w-[120px] bg-gray-200">
-                            <div className="h-2 bg-gray-600" style={{width:skills.rating+"%"}}>
+                            <div className="h-2 bg-gray-600" style={{width:skills.rating*20+"%"}}>
 
                             </div>
                         </div>
