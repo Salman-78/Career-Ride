@@ -32,7 +32,7 @@ const LandingPage = () => {
             <ProfileInfoCard />
           ) : (
             <button
-              className="bg-purple-400 text-sm font-semibold text-white px-7 py-2.5 rounded-lg hover:bg-gray-800 hover:text-white transition-colors cursor-pointer"
+              className="bg-purple-400 text-sm font-semibold text-white px-7 py-2.5 rounded-lg hover:bg-green-400 hover:text-white transition-colors cursor-pointer"
               onClick={() => setOpenAuthModal(true)}
             >
               Login / Sign Up
