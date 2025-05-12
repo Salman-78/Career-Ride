@@ -21,6 +21,14 @@ const LandingPage = () => {
       navigate("/dashboard");
     }
   };
+  const handleATSCheck = () => {
+    if (!user) {
+      setOpenAuthModal(true);
+    } else {
+      navigate("/atsChecker");
+    }
+  };
+
 
   return (
     <div className="w-full min-h-full bg-white">
@@ -53,12 +61,20 @@ const LandingPage = () => {
               Craft a standout resume in minutes with our smart and intuitive
               resume builder.
             </p>
-            <button
-              className="bg-purple-400 text-sm font-semibold text-white px-8 py-3 rounded-lg hover:bg-green-400 transition-colors cursor-pointer"
+            <div className="flex gap-x-4">
+              <button
+              className="bg-purple-400 text-base font-semibold text-white px-10 py-4 rounded-lg hover:bg-green-400 transition-colors cursor-pointer"
               onClick={handleCTA}
             >
-              Get Started
+              Create Resume
             </button>
+            <button
+              className="bg-purple-400 text-sm font-semibold text-white px-8 py-3 rounded-lg hover:bg-green-400 transition-colors cursor-pointer"
+              onClick={handleATSCheck}
+            >
+              Check ATS score
+            </button>
+            </div>
           </div>
         </div>
 
