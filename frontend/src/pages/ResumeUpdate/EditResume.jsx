@@ -1,3 +1,5 @@
+/* eslint-disable no-case-declarations */
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {
@@ -577,7 +579,7 @@ const EditResume = () => {
   return (
     <DashboardLayout>
       <div className="container mx-auto">
-        <div className="flex items-center justify-between gap-5 bg-white rounded-lg border border-purple-100 py-3 px-4 mb-4">
+        <div className="flex items-center justify-between gap-5 bg-white rounded-lg border border-purple-200 py-3 px-4 mb-4">
           <TitleInput
             title={resumeData.title}
             setTitle={(value) =>
@@ -588,7 +590,7 @@ const EditResume = () => {
             }
           />
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 ">
             <button
               className="btn-small-light"
               onClick={() => setOpenThemeSelector(true)}
@@ -613,7 +615,7 @@ const EditResume = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <div className="bg-white rounded-lg border border-purple-100 overflow-hidden">
+          <div className="bg-white rounded-lg border border-purple-200 overflow-hidden">
             <StepProgress progress={progress} />
 
             {renderForm()}
