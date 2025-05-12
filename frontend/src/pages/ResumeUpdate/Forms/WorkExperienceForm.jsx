@@ -1,8 +1,33 @@
 import React from 'react'
+import { useState } from 'react';
 import Input from "../../../components/Inputs/Input";
 import { LuPlus, LuTrash2 } from "react-icons/lu";
 
-const WorkExperienceForm = ({workExperience, updateArrayItem, addArrayItem, removeArrayItem}) => {
+const WorkExperienceForm = ({ workExperience, updateArrayItem, addArrayItem, removeArrayItem }) => {
+  const url = import.meta.env.VITE_APIURI
+  const [loadingIndex, setLoadingIndex] = useState(null);
+  const refactorWorkExperience = async (index, description) => {
+    setLoadingIndex(index);
+    try {
+      const response = await fetch(`${url}/api/resume/reFractor`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ summary: description }), // 👈 Send current description
+      });
+
+      const { improvedSummary } = await response.json();
+
+      if (improvedSummary) {
+        updateArrayItem(index, "description", improvedSummary); // 👈 Update description
+      }
+    } catch (error) {
+      console.error("Error refactoring work experience:", error);
+    } finally {
+      setLoadingIndex(null);
+    }
+  };
   return (
     <div className="px-5 pt-5">
       <h2 className="text-lg font-semibold text-gray-900">Work Experience</h2>
@@ -54,11 +79,45 @@ const WorkExperienceForm = ({workExperience, updateArrayItem, addArrayItem, remo
             </div>
 
             <div className="mt-4">
-              <label className="text-xs font-medium text-slate-600">
-                Description
-              </label>
+
+              <div className='flex justify-between'>
+                <label className="text-sm font-medium text-slate-600 ">
+                  Summary
+                </label>
+                <button
+                  type="button"
+                  onClick={() => refactorWorkExperience(index, experience.description)}
+                  className="mt-1 border border-purple-600 text-purple-600 px-3 py-1 rounded hover:bg-gray-100 transition"
+                >
+                  {loadingIndex === index ? (
+                    <svg
+                      className="animate-spin h-4 w-4 text-purple-600"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8v8z"
+                      ></path>
+                    </svg>
+                  ) : (
+                    "Refactor with AI"
+                  )}
+                </button>
+
+              </div>
               <textarea
-                placeholder="What did you do in this role?"
+                placeholder="💼 Mention your job role, company name, key responsibilities, and achievements. Just list them freely — our AI will organize them into a professional work summary!"
                 className="form-input w-full mt-1"
                 rows={3}
                 value={experience.description || ""}
