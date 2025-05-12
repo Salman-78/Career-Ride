@@ -1,12 +1,11 @@
 import React, { useContext, useState } from "react";
-
-import HERO_IMG from "../assets/hero-img.png";
 import { useNavigate } from "react-router-dom";
 import Login from "./Auth/Login";
 import SignUp from "./Auth/SignUp";
 import Modal from "../components/Modal";
 import { UserContext } from "../context/userContext";
 import ProfileInfoCard from "../components/Cards/ProfileInfoCard";
+import jogo from "./../assets/jogo.png";
 
 const LandingPage = () => {
   const { user } = useContext(UserContext);
@@ -16,7 +15,7 @@ const LandingPage = () => {
   const [currentPage, setCurrentPage] = useState("login");
 
   const handleCTA = () => {
-     if (!user) {
+    if (!user) {
       setOpenAuthModal(true);
     } else {
       navigate("/dashboard");
@@ -25,15 +24,15 @@ const LandingPage = () => {
 
   return (
     <div className="w-full min-h-full bg-white">
-      <div className="container mx-auto px-4 py-6">
+      <div className="container mx-auto px-4 py-6 ">
         {/* Header */}
-        <header className="flex justify-between items-center mb-16">
-          <div className="text-xl font-bold">Resume Builder</div>
+        <header className="flex justify-between items-center mb-16 pb-3 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)]">
+          <img src={jogo} width={150} height={150} />
           {user ? (
             <ProfileInfoCard />
           ) : (
             <button
-              className="bg-purple-100 text-sm font-semibold text-black px-7 py-2.5 rounded-lg hover:bg-gray-800 hover:text-white transition-colors cursor-pointer"
+              className="bg-purple-400 text-sm font-semibold text-white px-7 py-2.5 rounded-lg hover:bg-gray-800 hover:text-white transition-colors cursor-pointer"
               onClick={() => setOpenAuthModal(true)}
             >
               Login / Sign Up
@@ -55,27 +54,23 @@ const LandingPage = () => {
               resume builder.
             </p>
             <button
-              className="bg-black text-sm font-semibold text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition-colors cursor-pointer"
+              className="bg-purple-400 text-sm font-semibold text-white px-8 py-3 rounded-lg hover:bg-green-400 transition-colors cursor-pointer"
               onClick={handleCTA}
             >
               Get Started
             </button>
           </div>
-          <div className="w-full md:w-1/2">
-            <img
-              src={HERO_IMG}
-              alt="Hero Image"
-              className="w-full rounded-lg"
-            />
-          </div>
         </div>
 
         <section className="mt-5">
-          <h2 className="text-2xl font-bold text-center mb-12">
+          <h2 className="text-2xl font-bold text-center mb-12 text-transparent bg-clip-text bg-[radial-gradient(circle,_#7182ff_0%,_#3cff52_100%)] bg-[length:200%_200%] animate-text-shine">
             Features That Make You Shine
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition">
+            <div
+              className="bg-gray-50 p-6 rounded-xl shadow-[0_-4px_10px_-2px_rgba(0,0,0,0.2)]  hover:shadow-[0_-6px_20px_2px_rgba(168,85,247,0.6)] 
+  transition-shadow duration-500"
+            >
               <h3 className="text-lg font-semibold mb-3">Easy Editing</h3>
               <p className="text-gray-600">
                 Update your resume sections with live preview and instant
@@ -83,7 +78,10 @@ const LandingPage = () => {
               </p>
             </div>
 
-            <div className="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition">
+            <div
+              className="bg-gray-50 p-6 rounded-xl shadow-[0_-4px_10px_-2px_rgba(0,0,0,0.2)]  hover:shadow-[0_-6px_20px_2px_rgba(168,85,247,0.6)] 
+  transition-shadow duration-500"
+            >
               <h3 className="text-lg font-semibold mb-3">
                 Beautiful Templates
               </h3>
@@ -93,7 +91,10 @@ const LandingPage = () => {
               </p>
             </div>
 
-            <div className="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition">
+            <div
+              className="bg-gray-50 p-6 rounded-xl shadow-[0_-4px_10px_-2px_rgba(0,0,0,0.2)]  hover:shadow-[0_-6px_20px_2px_rgba(168,85,247,0.6)] 
+  transition-shadow duration-500"
+            >
               <h3 className="text-lg font-semibold mb-3">One-Click Export</h3>
               <p className="text-gray-600">
                 Download your resume instantly as a high-quality PDF with one
@@ -104,9 +105,9 @@ const LandingPage = () => {
         </section>
       </div>
 
-      <div className="text-sm bg-gray-50 text-secondary text-center p-5 mt-5">
+      {/* <div className="text-sm bg-gray-50 text-secondary text-center p-5 mt-5">
         Made with ❤️... Happy Coding
-      </div>
+      </div> */}
 
       <Modal
         isOpen={openAuthModal}
