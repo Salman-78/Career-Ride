@@ -280,7 +280,7 @@ const reFractor = async (req, res) => {
         directly in my ai powered resume builder app, so dont include response like "here is the refactored ....." just give the response which can be directly pasted into summry section of resume 
         without any modification. Note also dont make it too long i want the resume to be ats friendly \n${summary}`,
   });
-  const improvedSummary = await result.candidates[0].content.parts[0].text;
+  const improvedSummary = result.candidates[0].content.parts[0].text;
 
   res.json({ improvedSummary });
 };

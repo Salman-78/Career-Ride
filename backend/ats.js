@@ -26,8 +26,23 @@ async function getATSScore(resumeText) {
   const text = result.candidates[0].content.parts[0].text;
 
   const scoreMatch = text.match(/ATS Score[\s\S]*?(\d{1,3})/i);
-
+  console.log(scoreMatch);
   return scoreMatch[1];
 }
 
-module.exports = { getATSScore, genAI };
+async function filterData(text) {
+  const contents = `
+    send clean text of the below text
+    ${text}
+  `;
+
+  const result = await genAI.models.generateContent({
+    model: "gemini-2.0-flash",
+    contents,
+  });
+
+  const ftext = result.candidates[0].content.parts[0].text;
+  return ftext;
+}
+
+module.exports = { getATSScore, genAI, filterData };

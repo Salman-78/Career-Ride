@@ -5,7 +5,7 @@ import LandingPage from "./pages/LandingPage";
 import Dashboard from "./pages/Home/Dashboard";
 import EditResume from "./pages/ResumeUpdate/EditResume";
 import UserProvider from "./context/userContext";
-import AtsChecker from "./pages/Home/AtsChecker"
+import AtsChecker from "./pages/Home/AtsChecker";
 
 const App = () => {
   return (
@@ -24,6 +24,7 @@ const App = () => {
 
       <Toaster
         toastOptions={{
+          duration: 3000,
           className: "",
           style: {
             fontSize: "13px",
