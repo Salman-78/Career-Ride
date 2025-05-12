@@ -1,7 +1,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const Resume = require("../models/Resume");
-const { getATSScore } = require("../ats");
+const { getATSScore, genAI } = require("../ats");
 
 // @desc    Create a new resume
 // @route   POST /api/resumes
@@ -274,7 +274,7 @@ const getAts = async (req, res) => {
 const reFractor = async (req, res) => {
   const { summary } = req.body;
 
-  const result = await ai.models.generateContent({
+  const result = await genAI.models.generateContent({
     model: "gemini-2.0-flash",
     contents: `Please rewrite and improve this resume summary professionally: Note i will be using this response
         directly in my ai powered resume builder app, so dont include response like "here is the refactored ....." just give the response which can be directly pasted into summry section of resume 

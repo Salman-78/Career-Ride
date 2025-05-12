@@ -30,4 +30,4 @@ async function getATSScore(resumeText) {
   return scoreMatch[1];
 }
 
-module.exports = { getATSScore };
+module.exports = { getATSScore, genAI };
