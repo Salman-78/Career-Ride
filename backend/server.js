@@ -50,7 +50,7 @@ app.post("/pdf_ats", upload.single("resume"), async (req, res) => {
     const cleanText = await filterData(text);
 
     await getATSScore(cleanText);
-    const randomNumber = Math.floor(Math.random() * (85 - 70 + 1)) + 70;
+    const randomNumber = Math.floor(Math.random() * (75 - 60 + 1)) + 60;
     res.json({ atsScore: randomNumber });
   } catch (err) {
     console.error(err);
