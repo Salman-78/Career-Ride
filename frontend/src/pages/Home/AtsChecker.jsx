@@ -44,7 +44,19 @@ export default function UploadNotes() {
 
     const { atsScore } = await uploadResponse.json();
 
-    toast.success(`your ats score is ${atsScore}`);
+    toast.success(`🎉 Your ATS score is ${atsScore}!`, {
+      position: "top-center",
+      autoClose: 5000,
+      style: {
+        fontSize: "18px",
+        fontWeight: "bold",
+        background: "#e0f7fa",
+        color: "#00796b",
+        borderRadius: "10px",
+        padding: "16px",
+      },
+      icon: "✅",
+    });
   };
 
   return (
@@ -54,19 +66,21 @@ export default function UploadNotes() {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="flex items-center justify-center min-h-screen bg-gray-50 p-4"
     >
-      <div className="w-full max-w-lg p-8 bg-yellow-100 text-gray-900 rounded-xl shadow-lg border border-gray-300">
+      <div className="w-full max-w-lg p-8 bg-purple-100 text-gray-900 rounded-xl shadow-lg border border-gray-300">
         <h2 className="text-2xl font-bold mb-6 text-center text-gray-700">
           Upload Written Notes
         </h2>
         <form onSubmit={handleSubmit} className="w-full space-y-6">
-          <div>
-            <label
-              htmlFor="image"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Upload Notes PDF
-            </label>
-            <Dropzone onDrop={onDrop} accept="application/pdf" />
+          <div className="flex items-center justify-center">
+            <div className="flex flex-col items-center justify-center">
+              <label
+                htmlFor="image"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
+                Upload Notes PDF
+              </label>
+              <Dropzone onDrop={onDrop} accept="application/pdf" />
+            </div>
           </div>
           {pdf && (
             <div className="gallery-item relative mt-4">
@@ -87,7 +101,7 @@ export default function UploadNotes() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-yellow-500 hover:bg-yellow-400 text-white py-3 rounded-lg shadow-md"
+            className="w-full bg-purple-400 hover:bg-green-400 text-white py-3 rounded-lg shadow-md"
           >
             {loading ? "loading..." : "Upload"}
           </button>
